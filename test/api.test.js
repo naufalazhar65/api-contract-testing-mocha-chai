@@ -10,7 +10,7 @@ describe('ReqRes API', function() {
   describe('GET /api/users', function() {
     it('should return a list of users with valid properties', function(done) {
       chai.request('https://reqres.in')
-        .get('/api/users')
+        .get('/api/users?page=2&per_page=6')
         .end(function(err, res) {
           expect(err).to.be.null;
           expect(res).to.have.status(200);
