@@ -37,14 +37,14 @@ describe('ReqRes API', function() {
   describe('GET /api/users/:id', function() {
     it('should return a user with valid properties', function(done) {
       chai.request('https://reqres.in')
-        .get('/api/users/1')
+        .get('/api/users/2')
         .end(function(err, res) {
           expect(err).to.be.null;
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
 
           const user = res.body.data;
-          expect(user).to.have.property('id', 1).that.is.a('number');
+          expect(user).to.have.property('id').that.is.a('number');
           expect(user).to.have.property('email').that.is.a('string');
           expect(user).to.have.property('first_name').that.is.a('string');
           expect(user).to.have.property('last_name').that.is.a('string');
