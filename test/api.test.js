@@ -1,12 +1,12 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-
 const expect = chai.expect;
+
 chai.use(chaiHttp);
 
-// GET
-describe('ReqRes API', function() {
+  // =========================================================================================================
 
+describe('ReqRes API', function() {
   describe('GET /api/users', function() {
     it('should return a list of users with valid properties', function(done) {
       chai.request('https://reqres.in')
@@ -33,7 +33,8 @@ describe('ReqRes API', function() {
     });
   });
 
-  // GET||SINGLE_USER
+  // =========================================================================================================
+
   describe('GET /api/users/:id', function() {
     it('should return a user with valid properties', function(done) {
       chai.request('https://reqres.in')
@@ -56,12 +57,16 @@ describe('ReqRes API', function() {
     });
   });
 
-  // CREATE_USER
+  // =========================================================================================================
+
   describe('POST /api/users', function() {
     it('should create a new user with valid properties', function(done) {
       chai.request('https://reqres.in')
         .post('/api/users')
-        .send({ name: 'John Doe', job: 'Software Engineer' })
+        .send({ 
+          name: 'John Doe', 
+          job: 'Software Engineer' 
+        })
         .end(function(err, res) {
           expect(err).to.be.null;
           expect(res).to.have.status(201);
@@ -78,8 +83,10 @@ describe('ReqRes API', function() {
         });
     });
   });
+});
 
-    // EDIT_USER
+  // =========================================================================================================
+
     describe('PUT /api/users/:id', function() {
       it('should update a user with valid data', function(done) {
         chai.request('https://reqres.in')
@@ -99,9 +106,9 @@ describe('ReqRes API', function() {
             done();
           });
       });
-    });
-  
-    // DELETE_USER
+
+  // =========================================================================================================
+
     describe('DELETE /api/users/:id', function() {
       it('should delete a user with valid ID', function(done) {
         chai.request('https://reqres.in')

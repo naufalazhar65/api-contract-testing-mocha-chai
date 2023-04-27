@@ -3,3 +3,6 @@
 - Each test sends an HTTP request to the API using the Chai HTTP plugin and checks if the response contains the expected data using Chai assertions. If the assertions pass, the test is considered successful. If any assertion fails, the test fails and an error is returned.
 
 - In summary, this code is a set of automated tests to ensure that the ReqRes API is functioning as expected.
+
+# run
+npm test
